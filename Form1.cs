@@ -19,15 +19,21 @@ namespace PdfHunter
         public Form1()
         {
             InitializeComponent();
+            dt.Columns.Add("Dosya Adı");
+            dt.Columns.Add("Aranan kelime");
         }
         string[] pdfDosyalari;
         string directory;
+        DataTable dt = new DataTable();
+        
         private void PdfOkuVeAra(string dosyaYolu, string kelime)
         {
             using (PdfReader reader = new PdfReader(dosyaYolu))
             {
                 using (PdfDocument pdfDoc = new PdfDocument(reader))
                 {
+                    
+                   
                     for (int i = 1; i <= pdfDoc.GetNumberOfPages(); i++)
                     {
                         string text = PdfTextExtractor.GetTextFromPage(pdfDoc.GetPage(i));
@@ -36,7 +42,8 @@ namespace PdfHunter
                         {
                             this.Invoke((Action)(() =>
                             {
-                                listBox1.Items.Add($"{Path.GetFileName(dosyaYolu)} - {kelime} bulundu!");
+                                dt.Rows.Add(dosyaYolu.Split('\\')[dosyaYolu.Split('\\').Length-1], kelime); ;
+                                guna2DataGridView2.DataSource = dt;
                             }));
                         }
                     }
@@ -49,25 +56,32 @@ namespace PdfHunter
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                listBox2.Items.Clear();
+                guna2DataGridView1.DataSource = null;
                 directory = dialog.SelectedPath;
                 guna2TextBox2.Text = directory;
                 pdfDosyalari = Directory.GetFiles(directory, "*.pdf");
                 guna2ProgressBar1.Maximum = pdfDosyalari.Length;
                 guna2ProgressBar1.Value = 0;
-                listBox2.Items.AddRange(pdfDosyalari);
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Dosya Yolu");
+                foreach (string file in pdfDosyalari)
+                {
+                    dt.Rows.Add(file);
+                }
+                guna2DataGridView1.DataSource= dt;
                 MessageBox.Show("Tüm dosyalar getirildi!", "Bitti");
             }
         }
 
         private async void guna2GradientButton1_Click(object sender, EventArgs e)
         {
+            dt.Clear();
             if(pdfDosyalari==null|| pdfDosyalari.Length==0)
             {
                 MessageBox.Show("Lütfen önce bir klasör seçin ve içinde pdf dosyalarının olduğundan emin olun!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            listBox1.Items.Clear();
+            guna2DataGridView2.DataSource=null;
             guna2ProgressBar1.Value = 0;
             guna2ProgressBar1.Maximum = pdfDosyalari.Length;
             guna2TaskBarProgress1.Value = 0;
@@ -82,6 +96,12 @@ namespace PdfHunter
             }
             await Task.WhenAll(tasks);
             MessageBox.Show("Tüm dosyalar tarandı!", "Bitti");
+            guna2TaskBarProgress1.Value = 0;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
