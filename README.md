@@ -1,42 +1,52 @@
-# PDFHunter - Paralel PDF Dosyası Arama Aracı
+# PDFHunter - Parallel PDF File Search Tool
 
-**PDFHunter**, kullanıcıların seçtiği klasördeki PDF dosyalarında anahtar kelimeleri hızlı bir şekilde arayabileceği bir araçtır. Paralel arama teknolojisi sayesinde, çok sayıda dosya üzerinde aynı anda arama yaparak işlemleri hızlandırır.
+**PDFHunter** is a tool that allows users to quickly search for keywords in PDF files within a selected folder. Thanks to parallel search technology, it speeds up the process by searching multiple files at the same time.
 
-## Özellikler
+## Features
 
-- **Paralel Arama**: Birden fazla PDF dosyasını aynı anda tarayarak arama işlemini hızlandırır.
-- **Hızlı ve Kolay Kullanım**: Kullanıcı dostu arayüz ile kolayca dosya seçebilir ve kelime araması yapabilirsiniz.
-- **Tüm PDF Dosyalarında Arama**: Seçtiğiniz klasördeki tüm PDF dosyalarında arama yapabilirsiniz.
-- **İlerleme Durumu**: Arama sürecinde ilerleme çubuğu ve görev çubuğu ile süreci takip edebilirsiniz.
+- **Parallel Search**: Speeds up the search process by scanning multiple PDF files simultaneously.
+- **Fast and Easy to Use**: User-friendly interface for easy file selection and keyword search.
+- **Search Across All PDF Files**: Search all PDF files in the selected folder.
+- **Progress Tracking**: Track the progress with a progress bar and taskbar indicator during the search process.
 
-## Gereksinimler
+## Requirements
 
-- **Windows Forms** (Visual Studio’da Windows Forms uygulaması)
-- **iText** (PDF dosyalarını okumak ve metin çıkartmak için)
-- **.NET Framework 4.7.2** ve üzeri
+- **Windows Forms** (Windows Forms application in Visual Studio)
+- **iText** (For reading PDF files and extracting text)
+- **.NET Framework 4.7.2** or later
 - **Guna UI** 
 
-## Kurulum
+## Installation
 
-1. Bu repository’i klonlayın veya kaynak kodunu indirin.
-2. Projeyi Visual Studio’da açın.
-3. Gerekli NuGet paketlerini yükleyin:
+1. Clone this repository or download the source code.
+2. Open the project in Visual Studio.
+3. Install the necessary NuGet packages:
    - **iText**:
      ```bash
      Install-Package itext
      ```
-4. Projeyi çalıştırın ve PDF dosyalarını taramaya başlayın!
+4. Run the project and start scanning your PDF files!
 
-## Kullanım
+## Usage
 
-1. **Klasör Seçin**: PDF dosyalarını içeren klasörü seçin.
-2. **Anahtar Kelime Girin**: Aramak istediğiniz kelimeyi yazın.
-3. **Aramaya Başlayın**: Arama işlemini başlatın ve sonuçları anında görün.
+1. **Select Folder**: Choose the folder containing the PDF files.
+2. **Enter Keyword**: Type the keyword you want to search for.
+3. **Start Search**: Begin the search process and view results instantly.
 
-### Örnek Adımlar:
+### Example Steps:
 
-- Uygulama açıldığında, klasör seçme butonuna tıklayarak PDF dosyalarının bulunduğu klasörü seçin.
-- Aranacak kelimeyi yazın ve arama butonuna tıklayın.
-- Arama işlemi sırasında ilerleme durumu görünür olacaktır.
-- Sonuçlar, aradığınız kelimeyi içeren PDF dosyalarıyla birlikte listelenir.
+- When the application opens, click the button to select the folder containing PDF files.
+- Enter the keyword you want to search for and click the search button.
+- During the search, the progress will be shown.
+- Results will be displayed with the PDF files that contain the searched keyword.
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+## Credits
+
+- **iText**: [iText GitHub Repository](https://github.com/itext/itext7)
+- **PDFHunter**: [PDFHunter GitHub Repository](https://github.com/htunc29/PDFHunter)
+
+Start saving time by quickly searching through your PDF files! 🚀
