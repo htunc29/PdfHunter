@@ -50,3 +50,4 @@ This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.t
 - **PDFHunter**: [PDFHunter GitHub Repository](https://github.com/htunc29/PDFHunter)
 
 Start saving time by quickly searching through your PDF files! 🚀
+<figure><embed src="https://wakatime.com/share/@TrCoder/3c310085-dd46-4ea4-a417-d885139cbc79.svg"></embed></figure>
